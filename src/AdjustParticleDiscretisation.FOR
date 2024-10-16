@@ -8,7 +8,7 @@
       !
 	  !
 	  !	  Anura3D - Numerical modelling and simulation of large deformations 
-	  !   and soil–water–structure interaction using the material point method (MPM)
+	  !   and soilâ€“waterâ€“structure interaction using the material point method (MPM)
       !
 	  !	  Copyright (C) 2023  Members of the Anura3D MPM Research Community 
 	  !   (See Contributors file "Contributors.txt")
@@ -377,11 +377,11 @@
           ! Copy old particle array to new particle array, remove deleted particles
           NewParticleIndex = 1
           do I = 1, Counters%NParticles - NUpdateParticles ! Loop over original number of particles
-                if ((ANY(CalParams%OutputParticles == I)) .AND. (NUpdateParticles<0)) then
-                    MPtrackindex = 0
-                    MPtrackindex = MINLOC(abs(CalParams%OutputParticles-I))
-                    CalParams%OutputParticles(MPtrackindex) = NewParticleIndex
-                end if    
+                !if ((ANY(CalParams%OutputParticles == I)) .AND. (NUpdateParticles<0)) then
+                    !MPtrackindex = 0
+                    !MPtrackindex = MINLOC(abs(CalParams%OutputParticles-I))
+                    !CalParams%OutputParticles(MPtrackindex) = NewParticleIndex
+                !end if    
                           
             if (TempParticles(I)%Kind/=REMOVEDPARTICLE) then
               Particles(NewParticleIndex) = CopyParticle(TempParticles(I), TempIDArray(I))
